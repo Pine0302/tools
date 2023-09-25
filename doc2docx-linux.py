@@ -7,16 +7,16 @@ import shutil
 filesList = []
 
 # 源文件路径
-sourcePath = "/home/pine/html/tt"
+sourcePath = "/home/pine/workspace/model/tempFile/newdoc"
 # 目标文件路进
-destPath = "/home/pine/html/docx"
+destPath = "/home/pine/workspace/model/tempFile/docx"
 
 def handleFile(sourcePath):
     for root, dirs, files in os.walk(sourcePath):
         for file in files:
-            if file.find(".") != -1:
-                suffix = file.split('.')[1]
-                if suffix == 'doc':
+            if file.rfind(".doc") != -1:
+                suffix = file.split('.do')[1]
+                if suffix == 'c':
                     # 去掉文件名的空格
                     if file.find(" ") != -1:
                         oldfile = file
@@ -25,6 +25,8 @@ def handleFile(sourcePath):
                         os.remove(sourcePath + "/" + oldfile)
                     filesList.append(file)
                     os.system("libreoffice --headless --convert-to docx %s --outdir %s" % (sourcePath + "/" +file, destPath))
+                if suffix == 'cx':
+                    shutil.copy(sourcePath + "/" + file, destPath + "/" + file)
         for dir in dirs:
             handleFile(sourcePath + "/" + dir)
         return filesList
