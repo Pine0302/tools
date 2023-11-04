@@ -2,8 +2,8 @@ import os
 
 
 # 将中文部分替换为你想要的文件路径。
-filepath = '/home/pine/workspace/model/tempFile/docx'
-destination_path = '/home/pine/workspace/model/tempFile/md'
+filepath = '/home/pine/workspace/model/tempFile/docx1'
+destination_path = '/home/pine/workspace/model/tempFile/md1'
 
 # 检查转换后文件所在文件夹是否存在，不存在则创建。
 if os.path.exists(destination_path):

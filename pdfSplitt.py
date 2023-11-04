@@ -30,10 +30,10 @@ def split_pdf(input_path, output_path, start_page, end_page):
 # endPage = int(sys.argv[4])
 inputPath = "/home/pine/Desktop/temp/01.pdf"
 outputPath = '/home/pine/Desktop/temp/02.pdf'
-startPage = 20
-endPage = 35
+startPage = 36
+endPage = 59
 a = startPage
 while a<endPage:
     outputPath = '/home/pine/Desktop/temp/'+ str(a) +'.pdf'
-    split_pdf(inputPath, outputPath, a, a+4)
-    a = a+5
+    split_pdf(inputPath, outputPath, a, a+23)
+    a = a+23

@@ -7,9 +7,9 @@ import shutil
 filesList = []
 
 # 源文件路径
-sourcePath = "/home/pine/workspace/model/tempFile/newdoc"
+sourcePath = "/home/pine/workspace/model/tempFile/newdoc1"
 # 目标文件路进
-destPath = "/home/pine/workspace/model/tempFile/docx"
+destPath = "/home/pine/workspace/model/tempFile/docx1"
 
 def handleFile(sourcePath):
     for root, dirs, files in os.walk(sourcePath):
