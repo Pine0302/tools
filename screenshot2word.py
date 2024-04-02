@@ -12,7 +12,7 @@ from watchdog.events import FileSystemEventHandler
 from alioss import upload2oss
 from baiduocr import ocr
 
-#logging.basicConfig(filename='/home/pine/workspace/pythontool/test.txt', level=logging.INFO)
+logging.basicConfig(filename='/home/pine/workspace/pythontool/test.log', level=logging.INFO)
 
 #基于监控截屏文件夹的文件变动来找到截屏图片并解析成文字的方案
 class ScreenshotHandler(FileSystemEventHandler):
@@ -37,7 +37,6 @@ class ScreenshotHandler(FileSystemEventHandler):
 screenshots_folder = '/home/pine/Pictures/gnome-screenshot'
 
 if __name__ == "__main__":
-    #logging.info('This is an info message')
     event_handler = ScreenshotHandler()
     observer = Observer()
     observer.schedule(event_handler, path=screenshots_folder, recursive=False)

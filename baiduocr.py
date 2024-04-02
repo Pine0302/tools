@@ -3,8 +3,8 @@ import urllib
 import requests
 import os
 import json
-
-
+import logging
+logging.basicConfig(filename='/home/pine/workspace/pythontool/test.log', level=logging.INFO)
 def ocr(image_path):
     access_token = os.getenv('BAIDU_ACCESS_TOKEN')   
     if access_token is None:
@@ -19,6 +19,7 @@ def ocr(image_path):
     }
     response = requests.request("POST", url, headers=headers, data=payload)
     data = json.loads(response.text)
+    logging.info(f'data: {data}')
     words_results = [item["words"] for item in data["words_result"]]
     text_to_copy = '\n'.join(words_results)
     return text_to_copy

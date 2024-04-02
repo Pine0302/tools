@@ -2,7 +2,7 @@ import os
 import oss2
 import re
 import logging
-logging.basicConfig(filename='/home/pine/workspace/pythontool/test.txt', level=logging.INFO)
+logging.basicConfig(filename='/home/pine/workspace/pythontool/test.log', level=logging.INFO)
 
 def upload2oss(image_path):
     #logging.info(f'upload2oss: {image_path}')
@@ -11,7 +11,7 @@ def upload2oss(image_path):
     #logging.info(f'access_key_id: {access_key_id}')
     access_key_secret = os.getenv('ALIYUN_ACCESS_KEY_SECRET')
     if access_key_id is None or access_key_secret is None:
-        print("Access key ID or secret is None. Check your environment variables.")
+        logging.info("Access key ID or secret is None. Check your environment variables.")
         # 可以在这里添加逻辑来处理这个错误，比如退出程序
         exit(1)
 
