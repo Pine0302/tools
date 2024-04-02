@@ -8,7 +8,7 @@ logging.basicConfig(filename='/home/pine/workspace/pythontool/test.log', level=l
 def ocr(image_path):
     access_token = os.getenv('BAIDU_ACCESS_TOKEN')   
     if access_token is None:
-        print("Access TOKEN is None. Check your environment variables.")
+        logging.info("Access TOKEN is None. Check your environment variables.")
         exit(1) 
     url = "https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic?access_token=" + access_token #高精度
     image = get_file_content_as_base64(image_path,True)
@@ -46,7 +46,7 @@ def get_access_token():
     access_key_id = os.getenv('BAIDU_ACCESS_KEY_ID')
     access_key_secret = os.getenv('BAIDU_ACCESS_KEY_SECRET')
     if access_key_id is None or access_key_secret is None:
-        print("Access key ID or secret is None. Check your environment variables.")
+        logging.info("Access key ID or secret is None. Check your environment variables.")
         # 可以在这里添加逻辑来处理这个错误，比如退出程序
         exit(1)
 

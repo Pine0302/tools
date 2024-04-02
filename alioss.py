@@ -24,17 +24,17 @@ def upload2oss(image_path):
 
     # 从本地文件路径提取文件名作为OSS中的Key
     filename = os.path.basename(image_path)
-    print(f"文件名： {filename} ")
+    logging.info(f"文件名： {filename} ")
     # 使用字符串方法和格式化来转换文件名
     key = re.sub(r"屏幕截图", "", filename)
     key = re.sub(r" ", "-", key)
 
     # 上传文件
     bucket.put_object_from_file(key, image_path)
-    #print(f"文件 {image_path} 已上传至 OSS。")
+    #logging.info(f"文件 {image_path} 已上传至 OSS。")
 
     # 构建文件访问链接
     file_url = f"http://{bucket_name}.{endpoint}/{key}"
-    #print(f"文件访问链接：{file_url}")
+    #logging.info(f"文件访问链接：{file_url}")
 
     return file_url
