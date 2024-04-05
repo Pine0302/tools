@@ -4,8 +4,13 @@ import requests
 import os
 import json
 import logging
+import time
+
 logging.basicConfig(filename='/home/pine/workspace/pythontool/test.log', level=logging.INFO)
 def ocr(image_path):
+    time.sleep(1)
+    #image_path =  "/home/pine/Pictures/gnome-screenshot/screenshot_2024-04-05_12-55-17.png"
+    logging.info(f'image_path: {image_path}')
     access_token = os.getenv('BAIDU_ACCESS_TOKEN')   
     if access_token is None:
         logging.info("Access TOKEN is None. Check your environment variables.")

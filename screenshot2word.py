@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #import os
 import time
 #import pytesseract
@@ -13,7 +14,6 @@ from alioss import upload2oss
 from baiduocr import ocr
 
 logging.basicConfig(filename='/home/pine/workspace/pythontool/test.log', level=logging.INFO)
-
 #基于监控截屏文件夹的文件变动来找到截屏图片并解析成文字的方案
 class ScreenshotHandler(FileSystemEventHandler):
     def on_created(self, event):
@@ -21,8 +21,8 @@ class ScreenshotHandler(FileSystemEventHandler):
         if not event.is_directory:
             #print(f'新截屏被检测到: {event.src_path}')
             #logging.info(f'新截屏被检测到: {event.src_path}')
-            file_url = upload2oss(event.src_path)
-            logging.info(f'file_url: {file_url}')
+            #file_url = upload2oss(event.src_path)
+            #logging.info(f'file_url: {file_url}')
             #使用百度ocr识别
             #words = ocr(file_url)
             words = ocr(event.src_path)
