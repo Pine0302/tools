@@ -4,3 +4,8 @@
 - ocr识别我采用方案是薅一下百度api的羊毛，可以使用pytesseract等一些插件，识别精度不高（可以先优化图片再识别，但是比起百度api还是差点）
 - 可以配置ubuntu自启动，研究下crontab -e 的 @restart 可以解决，不过crontab下要解决一些问题（环境变量获取，复制的时候获取不到display框：export DISPLAY=:0 等问题）
 - ubuntu下的微信真垃圾，截图之后复制到对话框里面都不行，所以也不知道微信看图识字能不能用，干脆自己整理了这个方案
+
+## nlp-extractText：
+```
+python extractText.py -file "/home/pine/Downloads/CN_Corpus/CN_Corpus/SogouC.reduced/Reduced/C000008/11.txt"
+```

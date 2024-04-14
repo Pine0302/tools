@@ -8,6 +8,7 @@ import time
 
 logging.basicConfig(filename='/home/pine/workspace/pythontool/test.log', level=logging.INFO)
 def ocr(image_path):
+    logging.info(f'ocr识别开始: {image_path}')
     time.sleep(1)
     #image_path =  "/home/pine/Pictures/gnome-screenshot/screenshot_2024-04-05_12-55-17.png"
     logging.info(f'image_path: {image_path}')

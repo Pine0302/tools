@@ -5,6 +5,8 @@ import requests
 from bs4 import BeautifulSoup
 import re
 import pandas as pd
+#词云生成
+
 #获取url数据
 url = 'http://njua.pinecc.cn/model/DPAEF-AbnormalRecognition.html'
 response = requests.get(url)

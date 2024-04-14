@@ -11,7 +11,7 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 #from image_processer import process_image_self,preprocess_image
 from alioss import upload2oss
-from baiduocr import ocr
+from baiduocr import ocr,get_access_token
 
 logging.basicConfig(filename='/home/pine/workspace/pythontool/test.log', level=logging.INFO)
 #基于监控截屏文件夹的文件变动来找到截屏图片并解析成文字的方案
@@ -25,6 +25,8 @@ class ScreenshotHandler(FileSystemEventHandler):
             #logging.info(f'file_url: {file_url}')
             #使用百度ocr识别
             #words = ocr(file_url)
+            #token = get_access_token()
+            #logging.info(f'token: {token}')
             words = ocr(event.src_path)
             #logging.info(f'words: {words}')
             #print(text_to_copy)
