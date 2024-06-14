@@ -9,3 +9,11 @@
 ```
 python extractText.py -file "/home/pine/Downloads/CN_Corpus/CN_Corpus/SogouC.reduced/Reduced/C000008/11.txt"
 ```
+###
+```
+from gensim.models import word2vec,Word2Vec
+#生成模型
+python word2vecs.py -dir "/home/pine/Downloads/CN_Corpus/CN_Corpus/SogouC.reduced/Reduced/C000020"
+#调试模型
+python word2vecs.py
+```

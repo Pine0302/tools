@@ -30,6 +30,31 @@ def ocr(image_path):
     text_to_copy = '\n'.join(words_results)
     return text_to_copy
     
+def ocrUrl(image_url):
+    encoded_url = urllib.parse.quote(image_url, safe='')
+    logging.info(f'ocr识别开始: {encoded_url}')
+    time.sleep(1)
+    #image_path =  "/home/pine/Pictures/gnome-screenshot/screenshot_2024-04-05_12-55-17.png"
+    logging.info(f'image_path: {encoded_url}')
+    access_token = os.getenv('BAIDU_ACCESS_TOKEN')   
+    if access_token is None:
+        logging.info("Access TOKEN is None. Check your environment variables.")
+        exit(1) 
+    url = "https://aip.baidubce.com/rest/2.0/ocr/v1/accurate_basic?access_token=" + access_token #高精度
+
+    payload='url='+encoded_url+'&detect_direction=false&paragraph=false&probability=false'
+    headers = {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Accept': 'application/json'
+    }
+    
+    response = requests.request("POST", url, headers=headers, data=payload)
+    
+    data = json.loads(response.text)
+    logging.info(f'data: {data}')
+    words_results = [item["words"] for item in data["words_result"]]
+    text_to_copy = '\n'.join(words_results)
+    return text_to_copy
 
 def get_file_content_as_base64(path, urlencoded=False):
     """

@@ -25,10 +25,13 @@ class FileReader:
                 return content
         except FileNotFoundError:
             print(f"Error: The file '{self.filename}' was not found.")
+            return
         except UnicodeDecodeError:
             print(f"Error: Unable to decode the file '{self.filename}' with encoding '{self.encoding}'.")
+            return
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
+            return
 
     def read_lines(self, num_lines=None):
         try:

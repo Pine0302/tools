@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from baiduocr import ocr,get_access_token
+from baiduocr import ocr,get_access_token,ocrUrl
 from werkzeug.utils import secure_filename
 import logging
 app = Flask(__name__)
@@ -20,6 +20,22 @@ def process_image():
     file_storage.save(temp_filename)
     logging.info(f"temp_file_name"+temp_filename)
     words = ocr(temp_filename)
+
+    return jsonify({'result': words})
+    # 读取文件内容
+   # image_data = file.read()
+
+    # 对图像数据进行处理，这里简单地将其转换为 Base64 编码的字符串
+    #encoded_image = base64.b64encode(image_data).decode('utf-8')
+
+    # 返回处理后的字符串
+    #return jsonify({'result': encoded_image})
+
+@app.route('/process_url', methods=['GET'])
+def process_url():
+    # 检查请求中是否包含文件
+    file_url = request.args.get('url')
+    words = ocrUrl(file_url)
 
     return jsonify({'result': words})
     # 读取文件内容
