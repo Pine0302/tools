@@ -1,5 +1,5 @@
 import ffmpeg
-
+#文件切割为左右声到
 def split_stereo_channels(input_file, output_dir):
     """
     Splits the stereo audio file into separate left and right channel audio files.
